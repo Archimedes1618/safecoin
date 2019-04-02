@@ -1552,51 +1552,51 @@ diff -crB ./src/assetchains ../../safecoin-jl777/src/assetchains
 ! ./safecoind -pubkey=$pubkey -ac_name=IDR -addnode=78.47.196.146 $1 &
 ! ./safecoind -pubkey=$pubkey -ac_name=HRK -addnode=78.47.196.146 $1 &
 ! 
-! curl --url "http://127.0.0.1:7776" --data "{\"timeout\":60000,\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"REVS\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"timeout\":60000,\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"REVS\",\"pubkey\":\"$pubkey\"}"
 ! 
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SUPERNET\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"DEX\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"PANGEA\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"JUMBLR\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BET\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CRYPTO\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HODL\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SHARK\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BOTS\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"MGW\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"USD\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"EUR\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SUPERNET\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"DEX\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"PANGEA\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"JUMBLR\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BET\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CRYPTO\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HODL\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SHARK\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BOTS\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"MGW\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"USD\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"EUR\",\"pubkey\":\"$pubkey\"}"
 !  
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"JPY\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"GBP\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"AUD\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CAD\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CHF\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"NZD\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CNY\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"RUB\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"MXN\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BRL\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"INR\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HKD\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"TRY\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"ZAR\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"PLN\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"NOK\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SEK\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"DKK\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CZK\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HUF\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"ILS\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"KRW\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"MYR\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"PHP\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"RON\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SGD\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"THB\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BGN\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"IDR\",\"pubkey\":\"$pubkey\"}"
-! curl --url "http://127.0.0.1:7776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HRK\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"JPY\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"GBP\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"AUD\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CAD\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CHF\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"NZD\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CNY\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"RUB\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"MXN\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BRL\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"INR\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HKD\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"TRY\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"ZAR\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"PLN\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"NOK\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SEK\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"DKK\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"CZK\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HUF\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"ILS\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"KRW\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"MYR\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"PHP\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"RON\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"SGD\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"THB\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"BGN\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"IDR\",\"pubkey\":\"$pubkey\"}"
+! curl --url "http://127.0.0.1:8776" --data "{\"agent\":\"iguana\",\"method\":\"dpow\",\"symbol\":\"HRK\",\"pubkey\":\"$pubkey\"}"
   
 --- 3,50 ----
   source pubkey.txt
@@ -2715,7 +2715,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       pax_keyset(buf,txid,vout,type);
 ***************
 *** 178,190 ****
-  int32_t safecoin_issued_opreturn(char *base,uint256 *txids,uint16_t *vouts,int64_t *values,int64_t *srcvalues,int32_t *SAFEheights,int32_t *otherheights,int8_t *baseids,uint8_t *rmd160s,uint8_t *opretbuf,int32_t opretlen,int32_t issafecoin)
+  int32_t safecoin_issued_opreturn(char *base,uint256 *txids,uint16_t *vouts,int64_t *values,int64_t *srcvalues,int32_t *safeheights,int32_t *otherheights,int8_t *baseids,uint8_t *rmd160s,uint8_t *opretbuf,int32_t opretlen,int32_t issafecoin)
   {
       struct pax_transaction p,*pax; int32_t i,n=0,j,len=0,incr,height,otherheight; uint8_t type,rmd160[20]; uint64_t fiatoshis; char symbol[16];
 !     incr = 34 + (issafecoin * (2*sizeof(fiatoshis) + 2*sizeof(height) + 20 + 4));
@@ -2729,7 +2729,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       {
           type = opretbuf[0];
 --- 188,201 ----
-  int32_t safecoin_issued_opreturn(char *base,uint256 *txids,uint16_t *vouts,int64_t *values,int64_t *srcvalues,int32_t *SAFEheights,int32_t *otherheights,int8_t *baseids,uint8_t *rmd160s,uint8_t *opretbuf,int32_t opretlen,int32_t issafecoin)
+  int32_t safecoin_issued_opreturn(char *base,uint256 *txids,uint16_t *vouts,int64_t *values,int64_t *srcvalues,int32_t *safeheights,int32_t *otherheights,int8_t *baseids,uint8_t *rmd160s,uint8_t *opretbuf,int32_t opretlen,int32_t issafecoin)
   {
       struct pax_transaction p,*pax; int32_t i,n=0,j,len=0,incr,height,otherheight; uint8_t type,rmd160[20]; uint64_t fiatoshis; char symbol[16];
 !     if ( SAFECOIN_PAX == 0 )
@@ -2782,7 +2782,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       return(n);
   }
   
-+ int32_t safecoin_paxcmp(char *symbol,int32_t SAFEheight,uint64_t value,uint64_t checkvalue,uint64_t seed)
++ int32_t safecoin_paxcmp(char *symbol,int32_t safeheight,uint64_t value,uint64_t checkvalue,uint64_t seed)
 + {
 +     int32_t ratio;
 +     if ( seed == 0 && checkvalue != 0 )
@@ -2792,8 +2792,8 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 +             return(0);
 +         else
 +         {
-+             if ( SAFEheight >= 86150 )
-+                 printf("ht.%d ignore mismatched %s value %lld vs checkvalue %lld -> ratio.%d\n",SAFEheight,symbol,(long long)value,(long long)checkvalue,ratio);
++             if ( safeheight >= 86150 )
++                 printf("ht.%d ignore mismatched %s value %lld vs checkvalue %lld -> ratio.%d\n",safeheight,symbol,(long long)value,(long long)checkvalue,ratio);
 +             return(-1);
 +         }
 +     }
@@ -2890,7 +2890,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 +                             //int32_t j; for (j=0; j<32; j++)
 +                             //    printf("%02x",((uint8_t *)&pax->txid)[j]);
 +                             //if ( strcmp(str,ASSETCHAINS_SYMBOL) == 0 )
-+                             //    printf(" v%d %p got WITHDRAW.%s SAFE.%d ht.%d %.8f -> %.8f/%.8f\n",pax->vout,pax,pax->source,pax->height,pax->otherheight,dstr(pax->fiatoshis),dstr(pax->safecoinshis),dstr(checktoshis));
++                             //    printf(" v%d %p got WITHDRAW.%s safe.%d ht.%d %.8f -> %.8f/%.8f\n",pax->vout,pax,pax->source,pax->height,pax->otherheight,dstr(pax->fiatoshis),dstr(pax->safecoinshis),dstr(checktoshis));
 +                         }
 +                     }
 +                 }
@@ -2995,9 +2995,9 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 -         //else if ( strcmp(symbol,"SAFE") != 0 )
           {
   #ifdef SAFECOIN_ASSETCHAINS_WAITNOTARIZE
-!             struct safecoin_state *SAFEsp = safecoin_stateptrget((char *)"SAFE");
-!             if ( SAFEsp != 0 && SAFEsp->NOTARIZED_HEIGHT >= pax->height ) // assumes same chain as notarize
-                  pax->validated = pax->safecoinshis; //SAFEsp->NOTARIZED_HEIGHT;
+!             struct safecoin_state *safesp = safecoin_stateptrget((char *)"SAFE");
+!             if ( safesp != 0 && safesp->NOTARIZED_HEIGHT >= pax->height ) // assumes same chain as notarize
+                  pax->validated = pax->safecoinshis; //safesp->NOTARIZED_HEIGHT;
   #endif
           }
 !         if ( pax_fiatstatus(&available,&deposited,&issued,&withdrawn,&approved,&redeemed,symbol) != 0 || available < pax->fiatoshis )
@@ -3062,7 +3062,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !                     paxes[n++] = pax;
 !                     //int32_t j; for (j=0; j<32; j++)
 !                     //    printf("%02x",((uint8_t *)&pax->txid)[j]);
-!                     //printf(" %s.(SAFEht.%d ht.%d marked.%u approved.%d validated %.8f) %.8f\n",pax->source,pax->height,pax->otherheight,pax->marked,pax->approved,dstr(pax->validated),dstr(pax->safecoinshis));
+!                     //printf(" %s.(safeht.%d ht.%d marked.%u approved.%d validated %.8f) %.8f\n",pax->source,pax->height,pax->otherheight,pax->marked,pax->approved,dstr(pax->validated),dstr(pax->safecoinshis));
 !                 }
 !             }
           }
@@ -3089,7 +3089,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       struct pax_transaction *pax,*tmp; char symbol[16],dest[16]; uint8_t *script,opcode,opret[16384],data[16384]; int32_t i,baseid,ht,len=0,opretlen=0,numvouts=1; struct safecoin_state *sp; uint64_t available,deposited,issued,withdrawn,approved,redeemed,mask;
 +     if ( SAFECOIN_PAX == 0 )
 +         return(0);
-+     struct safecoin_state *SAFEsp = safecoin_stateptrget((char *)"SAFE");
++     struct safecoin_state *safesp = safecoin_stateptrget((char *)"SAFE");
       sp = safecoin_stateptr(symbol,dest);
       strcpy(symbol,base);
 +     if ( ASSETCHAINS_SYMBOL[0] != 0 && safecoin_baseid(ASSETCHAINS_SYMBOL) < 0 )
@@ -3111,8 +3111,8 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       {
           {
   #ifdef SAFECOIN_ASSETCHAINS_WAITNOTARIZE
-!             if ( SAFEsp != 0 && (SAFEsp->NOTARIZED_HEIGHT >= pax->height || SAFEsp->CURRENT_HEIGHT > pax->height+30) ) // assumes same chain as notarize
-                  pax->validated = pax->safecoinshis; //SAFEsp->NOTARIZED_HEIGHT;
+!             if ( safesp != 0 && (safesp->NOTARIZED_HEIGHT >= pax->height || safesp->CURRENT_HEIGHT > pax->height+30) ) // assumes same chain as notarize
+                  pax->validated = pax->safecoinshis; //safesp->NOTARIZED_HEIGHT;
 +             else pax->validated = pax->ready = 0;
   #endif
           }
@@ -3137,7 +3137,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 +             continue;
 +         if ( pax->type == 'A' && ASSETCHAINS_SYMBOL[0] == 0 )
 +         {
-+             if ( SAFEsp != 0 )
++             if ( safesp != 0 )
 +             {
 +                 if ( (baseid= safecoin_baseid(pax->symbol)) < 0 || ((1LL << baseid) & sp->RTmask) == 0 )
 +                 {
@@ -3173,7 +3173,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 --- 564,571 ----
   int32_t safecoin_check_deposit(int32_t height,const CBlock& block) // verify above block is valid pax pricing
   {
-      int32_t i,j,n,num,opretlen,offset=1,errs=0,matched=0,SAFEheights[64],otherheights[64]; uint256 hash,txids[64]; char symbol[16],base[16]; uint16_t vouts[64]; int8_t baseids[64]; uint8_t *script,opcode,rmd160s[64*20]; uint64_t available,deposited,issued,withdrawn,approved,redeemed; int64_t values[64],srcvalues[64]; struct pax_transaction *pax;
+      int32_t i,j,n,num,opretlen,offset=1,errs=0,matched=0,safeheights[64],otherheights[64]; uint256 hash,txids[64]; char symbol[16],base[16]; uint16_t vouts[64]; int8_t baseids[64]; uint8_t *script,opcode,rmd160s[64*20]; uint64_t available,deposited,issued,withdrawn,approved,redeemed; int64_t values[64],srcvalues[64]; struct pax_transaction *pax;
 +     if ( SAFECOIN_PAX == 0 )
 +         return(0);
       memset(baseids,0xff,sizeof(baseids));
@@ -3275,7 +3275,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
                       hash = block.GetHash();
                       for (j=0; j<32; j++)
                           printf("%02x",((uint8_t *)&hash)[j]);
-!                     printf(" kht.%d ht.%d %.8f %.8f blockhash couldnt find vout.[%d]\n",SAFEheights[i-1],otherheights[i-1],dstr(values[i-1]),dstr(srcvalues[i]),i);
+!                     printf(" kht.%d ht.%d %.8f %.8f blockhash couldnt find vout.[%d]\n",safeheights[i-1],otherheights[i-1],dstr(values[i-1]),dstr(srcvalues[i]),i);
                   }
               }
 !             if ( height <= chainActive.Tip()->nHeight && matched != num )
@@ -3291,7 +3291,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       return(0);
   }
   
-- int32_t safecoin_paxcmp(char *symbol,int32_t SAFEheight,uint64_t value,uint64_t checkvalue,uint64_t seed)
+- int32_t safecoin_paxcmp(char *symbol,int32_t safeheight,uint64_t value,uint64_t checkvalue,uint64_t seed)
 - {
 -     int32_t ratio;
 -     if ( seed == 0 && checkvalue != 0 )
@@ -3301,8 +3301,8 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 -             return(0);
 -         else
 -         {
--             if ( SAFEheight >= 86150 )
--                 printf("ht.%d ignore mismatched %s value %lld vs checkvalue %lld -> ratio.%d\n",SAFEheight,symbol,(long long)value,(long long)checkvalue,ratio);
+-             if ( safeheight >= 86150 )
+-                 printf("ht.%d ignore mismatched %s value %lld vs checkvalue %lld -> ratio.%d\n",safeheight,symbol,(long long)value,(long long)checkvalue,ratio);
 -             return(-1);
 -         }
 -     }
@@ -3317,7 +3317,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 - 
   const char *safecoin_opreturn(int32_t height,uint64_t value,uint8_t *opretbuf,int32_t opretlen,uint256 txid,uint16_t vout,char *source)
   {
-      uint8_t rmd160[20],rmd160s[64*20],addrtype,shortflag,pubkey33[33]; int32_t didstats,i,j,n,len,tosafecoin,SAFEheight,otherheights[64],SAFEheights[64]; int8_t baseids[64]; char base[4],coinaddr[64],destaddr[64]; uint256 txids[64]; uint16_t vouts[64]; uint64_t convtoshis,seed; int64_t fiatoshis,safecoinshis,checktoshis,values[64],srcvalues[64]; struct pax_transaction *pax,*pax2; struct safecoin_state *basesp; double diff;
+      uint8_t rmd160[20],rmd160s[64*20],addrtype,shortflag,pubkey33[33]; int32_t didstats,i,j,n,len,tosafecoin,safeheight,otherheights[64],safeheights[64]; int8_t baseids[64]; char base[4],coinaddr[64],destaddr[64]; uint256 txids[64]; uint16_t vouts[64]; uint64_t convtoshis,seed; int64_t fiatoshis,safecoinshis,checktoshis,values[64],srcvalues[64]; struct pax_transaction *pax,*pax2; struct safecoin_state *basesp; double diff;
       const char *typestr = "unknown";
       memset(baseids,0xff,sizeof(baseids));
       memset(values,0,sizeof(values));
@@ -3328,7 +3328,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
   
   const char *safecoin_opreturn(int32_t height,uint64_t value,uint8_t *opretbuf,int32_t opretlen,uint256 txid,uint16_t vout,char *source)
   {
-      uint8_t rmd160[20],rmd160s[64*20],addrtype,shortflag,pubkey33[33]; int32_t didstats,i,j,n,len,tosafecoin,SAFEheight,otherheights[64],SAFEheights[64]; int8_t baseids[64]; char base[4],coinaddr[64],destaddr[64]; uint256 txids[64]; uint16_t vouts[64]; uint64_t convtoshis,seed; int64_t fiatoshis,safecoinshis,checktoshis,values[64],srcvalues[64]; struct pax_transaction *pax,*pax2; struct safecoin_state *basesp; double diff;
+      uint8_t rmd160[20],rmd160s[64*20],addrtype,shortflag,pubkey33[33]; int32_t didstats,i,j,n,len,tosafecoin,safeheight,otherheights[64],safeheights[64]; int8_t baseids[64]; char base[4],coinaddr[64],destaddr[64]; uint256 txids[64]; uint16_t vouts[64]; uint64_t convtoshis,seed; int64_t fiatoshis,safecoinshis,checktoshis,values[64],srcvalues[64]; struct pax_transaction *pax,*pax2; struct safecoin_state *basesp; double diff;
       const char *typestr = "unknown";
 +     if ( SAFECOIN_PAX == 0 )
 +         return("nopax");
@@ -3342,20 +3342,20 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
       memset(srcvalues,0,sizeof(srcvalues));
 ***************
 *** 546,552 ****
-              if ( SAFEheight <= height )
+              if ( safeheight <= height )
               {
                   didstats = 0;
 !                 if ( strcmp(base,ASSETCHAINS_SYMBOL) == 0 )
                   {
-                      printf("(%s) (%s) SAFEheight.%d vs height.%d check %.8f vs %.8f tosafecoin.%d %d seed.%llx\n",ASSETCHAINS_SYMBOL,base,SAFEheight,height,dstr(checktoshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed);
+                      printf("(%s) (%s) safeheight.%d vs height.%d check %.8f vs %.8f tosafecoin.%d %d seed.%llx\n",ASSETCHAINS_SYMBOL,base,safeheight,height,dstr(checktoshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed);
                       for (i=0; i<32; i++)
 --- 691,697 ----
-              if ( SAFEheight <= height )
+              if ( safeheight <= height )
               {
                   didstats = 0;
 !                 if ( 0 && strcmp(base,ASSETCHAINS_SYMBOL) == 0 )
                   {
-                      printf("(%s) (%s) SAFEheight.%d vs height.%d check %.8f vs %.8f tosafecoin.%d %d seed.%llx\n",ASSETCHAINS_SYMBOL,base,SAFEheight,height,dstr(checktoshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed);
+                      printf("(%s) (%s) safeheight.%d vs height.%d check %.8f vs %.8f tosafecoin.%d %d seed.%llx\n",ASSETCHAINS_SYMBOL,base,safeheight,height,dstr(checktoshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed);
                       for (i=0; i<32; i++)
 ***************
 *** 592,598 ****
@@ -3407,7 +3407,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !     else if ( opretbuf[0] == 'W' && opretlen >= 38 )
       {
           tosafecoin = 1;
-          iguana_rwnum(0,&opretbuf[34],sizeof(SAFEheight),&SAFEheight);
+          iguana_rwnum(0,&opretbuf[34],sizeof(safeheight),&safeheight);
 --- 796,811 ----
                                   }
                               }
@@ -3424,26 +3424,26 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !     else if ( opretbuf[0] == 'W' )//&& opretlen >= 38 )
       {
           tosafecoin = 1;
-          iguana_rwnum(0,&opretbuf[34],sizeof(SAFEheight),&SAFEheight);
+          iguana_rwnum(0,&opretbuf[34],sizeof(safeheight),&safeheight);
 ***************
 *** 668,676 ****
           bitcoin_address(coinaddr,addrtype,rmd160,20);
-          checktoshis = PAX_fiatdest(&seed,tosafecoin,destaddr,pubkey33,coinaddr,SAFEheight,base,value);
+          checktoshis = PAX_fiatdest(&seed,tosafecoin,destaddr,pubkey33,coinaddr,safeheight,base,value);
           typestr = "withdraw";
-!         //printf("%s.height.%d vs height.%d check %.8f/%.8f vs %.8f tosafecoin.%d %d seed.%llx -> (%s)\n",ASSETCHAINS_SYMBOL,SAFEheight,height,dstr(checktoshis),dstr(safecoinshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed,coinaddr);
+!         //printf("%s.height.%d vs height.%d check %.8f/%.8f vs %.8f tosafecoin.%d %d seed.%llx -> (%s)\n",ASSETCHAINS_SYMBOL,safeheight,height,dstr(checktoshis),dstr(safecoinshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed,coinaddr);
           didstats = 0;
-!         if ( safecoin_paxcmp(base,SAFEheight,safecoinshis,checktoshis,seed) == 0 )
+!         if ( safecoin_paxcmp(base,safeheight,safecoinshis,checktoshis,seed) == 0 )
           {
               if ( value != 0 && ((pax= safecoin_paxfind(txid,vout,'W')) == 0 || pax->didstats == 0) )
               {
 --- 814,823 ----
           bitcoin_address(coinaddr,addrtype,rmd160,20);
-          checktoshis = PAX_fiatdest(&seed,tosafecoin,destaddr,pubkey33,coinaddr,SAFEheight,base,value);
+          checktoshis = PAX_fiatdest(&seed,tosafecoin,destaddr,pubkey33,coinaddr,safeheight,base,value);
           typestr = "withdraw";
 !         if ( 0 && strcmp(base,"RUB") == 0 )
-!             printf("RUB WITHDRAW %s.height.%d vs height.%d check %.8f/%.8f vs %.8f tosafecoin.%d %d seed.%llx -> (%s) len.%d\n",ASSETCHAINS_SYMBOL,SAFEheight,height,dstr(checktoshis),dstr(safecoinshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed,coinaddr,opretlen);
+!             printf("RUB WITHDRAW %s.height.%d vs height.%d check %.8f/%.8f vs %.8f tosafecoin.%d %d seed.%llx -> (%s) len.%d\n",ASSETCHAINS_SYMBOL,safeheight,height,dstr(checktoshis),dstr(safecoinshis),dstr(value),safecoin_is_issuer(),strncmp(ASSETCHAINS_SYMBOL,base,strlen(base)) == 0,(long long)seed,coinaddr,opretlen);
           didstats = 0;
-!         //if ( safecoin_paxcmp(base,SAFEheight,safecoinshis,checktoshis,seed) == 0 )
+!         //if ( safecoin_paxcmp(base,safeheight,safecoinshis,checktoshis,seed) == 0 )
           {
               if ( value != 0 && ((pax= safecoin_paxfind(txid,vout,'W')) == 0 || pax->didstats == 0) )
               {
@@ -3454,9 +3454,9 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
                       if ( strcmp(base,ASSETCHAINS_SYMBOL) == 0 )
 !                         printf("########### %p withdrawn %s += %.8f\n",basesp,base,dstr(value));
                   }
-!                 //printf("notarize %s %.8f -> %.8f SAFE.%d other.%d\n",ASSETCHAINS_SYMBOL,dstr(value),dstr(safecoinshis),SAFEheight,height);
+!                 //printf("notarize %s %.8f -> %.8f safe.%d other.%d\n",ASSETCHAINS_SYMBOL,dstr(value),dstr(safecoinshis),safeheight,height);
               }
-!             safecoin_gateway_deposit(coinaddr,safecoinshis,(char *)"SAFE",value,rmd160,txid,vout,'W',SAFEheight,height,source,0);
+!             safecoin_gateway_deposit(coinaddr,safecoinshis,(char *)"SAFE",value,rmd160,txid,vout,'W',safeheight,height,source,0);
               if ( (pax= safecoin_paxfind(txid,vout,'W')) != 0 )
               {
 -                 if ( didstats != 0 )
@@ -3475,19 +3475,19 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !                         printf("########### %p withdrawn %s += %.8f check %.8f\n",basesp,base,dstr(value),dstr(checktoshis));
                   }
 !                 if ( 0 && strcmp(base,"RUB") == 0 && (pax == 0 || pax->approved == 0) )
-!                     printf("notarize %s %.8f -> %.8f SAFE.%d other.%d\n",ASSETCHAINS_SYMBOL,dstr(value),dstr(safecoinshis),SAFEheight,height);
+!                     printf("notarize %s %.8f -> %.8f safe.%d other.%d\n",ASSETCHAINS_SYMBOL,dstr(value),dstr(safecoinshis),safeheight,height);
               }
-!             safecoin_gateway_deposit(coinaddr,0,(char *)"SAFE",value,rmd160,txid,vout,'W',SAFEheight,height,source,0);
+!             safecoin_gateway_deposit(coinaddr,0,(char *)"SAFE",value,rmd160,txid,vout,'W',safeheight,height,source,0);
               if ( (pax= safecoin_paxfind(txid,vout,'W')) != 0 )
               {
                   pax->type = opretbuf[0];
 !                 strcpy(pax->source,base);
 !                 strcpy(pax->symbol,"SAFE");
-!                 pax->height = SAFEheight;
+!                 pax->height = safeheight;
 !                 pax->otherheight = height;
 !                 pax->safecoinshis = safecoinshis;
               }
-!         } // else printf("withdraw %s paxcmp ht.%d %d error value %.8f -> %.8f vs %.8f\n",base,SAFEheight,height,dstr(value),dstr(safecoinshis),dstr(checktoshis));
+!         } // else printf("withdraw %s paxcmp ht.%d %d error value %.8f -> %.8f vs %.8f\n",base,safeheight,height,dstr(value),dstr(safecoinshis),dstr(checktoshis));
 !         // need to allocate pax
       }
       else if ( tosafecoin != 0 && opretbuf[0] == 'A' )
@@ -3499,7 +3499,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
                   printf("%02x",opretbuf[i]);
 !             printf(" opret[%c] else path tosafecoin.%d ht.%d before %.8f\n",opretbuf[0],tosafecoin,height,dstr(safecoin_paxtotal()));
           }
-          if ( (n= safecoin_issued_opreturn(base,txids,vouts,values,srcvalues,SAFEheights,otherheights,baseids,rmd160s,opretbuf,opretlen,1)) > 0 )
+          if ( (n= safecoin_issued_opreturn(base,txids,vouts,values,srcvalues,safeheights,otherheights,baseids,rmd160s,opretbuf,opretlen,1)) > 0 )
           {
               for (i=0; i<n; i++)
               {
@@ -3507,15 +3507,15 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 -                     continue;
 -                 didstats = 0;
 -                 seed = 0;
--                 checktoshis = safecoin_paxprice(&seed,SAFEheights[i],CURRENCIES[baseids[i]],(char *)"SAFE",(uint64_t)srcvalues[i]);
--                 /*printf("PAX_fiatdest ht.%d price %s %.8f -> SAFE %.8f vs %.8f\n",SAFEheights[i],CURRENCIES[baseids[i]],(double)srcvalues[i]/COIN,(double)values[i]/COIN,(double)checktoshis/COIN);
+-                 checktoshis = safecoin_paxprice(&seed,safeheights[i],CURRENCIES[baseids[i]],(char *)"SAFE",(uint64_t)srcvalues[i]);
+-                 /*printf("PAX_fiatdest ht.%d price %s %.8f -> SAFE %.8f vs %.8f\n",safeheights[i],CURRENCIES[baseids[i]],(double)srcvalues[i]/COIN,(double)values[i]/COIN,(double)checktoshis/COIN);
 -                 for (j=0; j<32; j++)
 -                     printf("%02x",((uint8_t *)&txids[i])[j]);
--                 printf(" v%d %.8f k.%d ht.%d base.%d\n",vouts[i],dstr(values[i]),SAFEheights[i],otherheights[i],baseids[i]);*/
+-                 printf(" v%d %.8f k.%d ht.%d base.%d\n",vouts[i],dstr(values[i]),safeheights[i],otherheights[i],baseids[i]);*/
 -                 if ( (pax= safecoin_paxfind(txids[i],vouts[i],'A')) == 0 )
                   {
 !                     bitcoin_address(coinaddr,60,&rmd160s[i*20],20);
-!                     safecoin_gateway_deposit(coinaddr,values[i],CURRENCIES[baseids[i]],srcvalues[i],&rmd160s[i*20],txids[i],vouts[i],'A',SAFEheights[i],otherheights[i],CURRENCIES[baseids[i]],SAFEheights[i]);
+!                     safecoin_gateway_deposit(coinaddr,values[i],CURRENCIES[baseids[i]],srcvalues[i],&rmd160s[i*20],txids[i],vouts[i],'A',safeheights[i],otherheights[i],CURRENCIES[baseids[i]],safeheights[i]);
 !                     safecoin_paxmark(height,txids[i],vouts[i],'W',height);
 !                     safecoin_paxmark(height,txids[i],vouts[i],'A',height);
 !                     if ( srcvalues[i] != 0 && (basesp= safecoin_stateptrget(CURRENCIES[baseids[i]])) != 0 )
@@ -3540,11 +3540,11 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 -                 if ( (pax= safecoin_paxfind(txids[i],vouts[i],'A')) != 0 )
 -                 {
 -                     pax->type = opretbuf[0];
--                     pax->approved = SAFEheights[i];
+-                     pax->approved = safeheights[i];
 -                     if ( didstats != 0 )
 -                         pax->didstats = 1;
 -                     if ( strcmp(CURRENCIES[baseids[i]],ASSETCHAINS_SYMBOL) == 0 )
--                         printf(" i.%d approved.%d <<<<<<<<<<<<< APPROVED %p\n",i,SAFEheights[i],pax);
+-                         printf(" i.%d approved.%d <<<<<<<<<<<<< APPROVED %p\n",i,safeheights[i],pax);
                   }
               }
 !         }
@@ -3557,13 +3557,13 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
                   printf("%02x",opretbuf[i]);
 !             printf(" opret[%c] else path tosafecoin.%d ht.%d before %.8f opretlen.%d\n",opretbuf[0],tosafecoin,height,dstr(safecoin_paxtotal()),opretlen);
           }
-          if ( (n= safecoin_issued_opreturn(base,txids,vouts,values,srcvalues,SAFEheights,otherheights,baseids,rmd160s,opretbuf,opretlen,1)) > 0 )
+          if ( (n= safecoin_issued_opreturn(base,txids,vouts,values,srcvalues,safeheights,otherheights,baseids,rmd160s,opretbuf,opretlen,1)) > 0 )
           {
               for (i=0; i<n; i++)
               {
 +                 //for (j=0; j<32; j++)
 +                 //    printf("%02x",((uint8_t *)&txids[i])[j]);
-+                 //printf(" v%d %.8f %.8f k.%d ht.%d base.%d\n",vouts[i],dstr(values[i]),dstr(srcvalues[i]),SAFEheights[i],otherheights[i],baseids[i]);
++                 //printf(" v%d %.8f %.8f k.%d ht.%d base.%d\n",vouts[i],dstr(values[i]),dstr(srcvalues[i]),safeheights[i],otherheights[i],baseids[i]);
                   if ( baseids[i] < 0 )
                   {
 !                     for (i=0; i<opretlen; i++)
@@ -3580,19 +3580,19 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
                   }
 !                 didstats = 0;
 !                 seed = 0;
-!                 checktoshis = safecoin_paxprice(&seed,SAFEheights[i],CURRENCIES[baseids[i]],(char *)"SAFE",(uint64_t)values[i]);
-!                 //printf("PAX_fiatdest ht.%d price %s %.8f -> SAFE %.8f vs %.8f\n",SAFEheights[i],CURRENCIES[baseids[i]],(double)values[i]/COIN,(double)srcvalues[i]/COIN,(double)checktoshis/COIN);
+!                 checktoshis = safecoin_paxprice(&seed,safeheights[i],CURRENCIES[baseids[i]],(char *)"SAFE",(uint64_t)values[i]);
+!                 //printf("PAX_fiatdest ht.%d price %s %.8f -> SAFE %.8f vs %.8f\n",safeheights[i],CURRENCIES[baseids[i]],(double)values[i]/COIN,(double)srcvalues[i]/COIN,(double)checktoshis/COIN);
 !                 if ( srcvalues[i] == checktoshis )
 !                 {
 !                     if ( (pax= safecoin_paxfind(txids[i],vouts[i],'A')) == 0 )
 !                     {
 !                         bitcoin_address(coinaddr,60,&rmd160s[i*20],20);
-!                         safecoin_gateway_deposit(coinaddr,srcvalues[i],CURRENCIES[baseids[i]],values[i],&rmd160s[i*20],txids[i],vouts[i],'A',SAFEheights[i],otherheights[i],CURRENCIES[baseids[i]],SAFEheights[i]);
+!                         safecoin_gateway_deposit(coinaddr,srcvalues[i],CURRENCIES[baseids[i]],values[i],&rmd160s[i*20],txids[i],vouts[i],'A',safeheights[i],otherheights[i],CURRENCIES[baseids[i]],safeheights[i]);
 !                         if ( (pax= safecoin_paxfind(txids[i],vouts[i],'A')) == 0 )
 !                             printf("unexpected null pax for approve\n");
 !                         else pax->validated = checktoshis;
 !                         if ( (pax2= safecoin_paxfind(txids[i],vouts[i],'W')) != 0 )
-!                             pax2->approved = SAFEheights[i];
+!                             pax2->approved = safeheights[i];
 !                         safecoin_paxmark(height,txids[i],vouts[i],'W',height);
 !                         //safecoin_paxmark(height,txids[i],vouts[i],'A',height);
 !                         if ( values[i] != 0 && (basesp= safecoin_stateptrget(CURRENCIES[baseids[i]])) != 0 )
@@ -3600,7 +3600,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !                             basesp->approved += values[i];
 !                             didstats = 1;
 !                             if ( strcmp(CURRENCIES[baseids[i]],ASSETCHAINS_SYMBOL) == 0 )
-!                                 printf("pax.%p ########### %p approved %s += %.8f -> %.8f/%.8f kht.%d %d\n",pax,basesp,CURRENCIES[baseids[i]],dstr(values[i]),dstr(srcvalues[i]),dstr(checktoshis),SAFEheights[i],otherheights[i]);
+!                                 printf("pax.%p ########### %p approved %s += %.8f -> %.8f/%.8f kht.%d %d\n",pax,basesp,CURRENCIES[baseids[i]],dstr(values[i]),dstr(srcvalues[i]),dstr(checktoshis),safeheights[i],otherheights[i]);
 !                         }
 !                         //printf(" i.%d (%s) <- %.8f ADDFLAG APPROVED\n",i,coinaddr,dstr(values[i]));
 !                     }
@@ -3617,12 +3617,12 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !                     if ( (pax= safecoin_paxfind(txids[i],vouts[i],'A')) != 0 )
 !                     {
 !                         pax->type = opretbuf[0];
-!                         pax->approved = SAFEheights[i];
+!                         pax->approved = safeheights[i];
 !                         pax->validated = checktoshis;
 !                         if ( didstats != 0 )
 !                             pax->didstats = 1;
 !                         //if ( strcmp(CURRENCIES[baseids[i]],ASSETCHAINS_SYMBOL) == 0 )
-!                         //printf(" i.%d approved.%d <<<<<<<<<<<<< APPROVED %p\n",i,SAFEheights[i],pax);
+!                         //printf(" i.%d approved.%d <<<<<<<<<<<<< APPROVED %p\n",i,safeheights[i],pax);
                       }
                   }
               }
@@ -3658,7 +3658,7 @@ diff -crB ./src/safecoin_gateway.h ../../safecoin-jl777/src/safecoin_gateway.h
 !                         basesp->redeemed += value;
                           pax->didstats = 1;
 !                         //if ( strcmp(CURRENCIES[baseids[i]],ASSETCHAINS_SYMBOL) == 0 )
-!                             printf("ht.%d %.8f ########### %p redeemed %s += %.8f %.8f kht.%d ht.%d\n",height,dstr(value),basesp,CURRENCIES[baseids[i]],dstr(value),dstr(srcvalues[i]),SAFEheights[i],otherheights[i]);
+!                             printf("ht.%d %.8f ########### %p redeemed %s += %.8f %.8f kht.%d ht.%d\n",height,dstr(value),basesp,CURRENCIES[baseids[i]],dstr(value),dstr(srcvalues[i]),safeheights[i],otherheights[i]);
                       }
                   }
 +                 if ( (pax= safecoin_paxmark(height,txids[i],vouts[i],'W',height)) != 0 )
@@ -3922,11 +3922,11 @@ diff -crB ./src/safecoin_pax.h ../../safecoin-jl777/src/safecoin_pax.h
               ptr = &PVALS[36 * i];
 ***************
 *** 439,450 ****
-                      *SAFEbtcp = ptr[MAX_CURRENCIES + 1] / 539;
+                      *safebtcp = ptr[MAX_CURRENCIES + 1] / 539;
                       *btcusdp = ptr[MAX_CURRENCIES + 2] / 539;
                   }
-                  if ( SAFEbtc != 0 && btcusd != 0 )
-                      return(safecoin_paxcalc(&ptr[1],baseid,relid,basevolume,SAFEbtc,btcusd));
+                  if ( safebtc != 0 && btcusd != 0 )
+                      return(safecoin_paxcalc(&ptr[1],baseid,relid,basevolume,safebtc,btcusd));
                   else return(0);
               }
           }
@@ -3935,12 +3935,12 @@ diff -crB ./src/safecoin_pax.h ../../safecoin-jl777/src/safecoin_pax.h
   }
   
 --- 440,453 ----
-                      *SAFEbtcp = ptr[MAX_CURRENCIES + 1] / 539;
+                      *safebtcp = ptr[MAX_CURRENCIES + 1] / 539;
                       *btcusdp = ptr[MAX_CURRENCIES + 2] / 539;
                   }
 +                 portable_mutex_unlock(&safecoin_mutex);
-                  if ( SAFEbtc != 0 && btcusd != 0 )
-                      return(safecoin_paxcalc(&ptr[1],baseid,relid,basevolume,SAFEbtc,btcusd));
+                  if ( safebtc != 0 && btcusd != 0 )
+                      return(safecoin_paxcalc(&ptr[1],baseid,relid,basevolume,safebtc,btcusd));
                   else return(0);
               }
           }
@@ -3952,12 +3952,12 @@ diff -crB ./src/safecoin_pax.h ../../safecoin-jl777/src/safecoin_pax.h
 ***************
 *** 473,479 ****
       }
-      SAFEbtc = safecoin_paxcorrelation(SAFEbtcs,numvotes,*seedp) * 539;
+      safebtc = safecoin_paxcorrelation(safebtcs,numvotes,*seedp) * 539;
       btcusd = safecoin_paxcorrelation(btcusds,numvotes,*seedp) * 539;
--     //printf("SAFEbtc %llu btcusd %llu\n",(long long)SAFEbtc,(long long)btcusd);
+-     //printf("safebtc %llu btcusd %llu\n",(long long)safebtc,(long long)btcusd);
       for (i=nonz=0; i<numvotes; i++)
       {
-          if ( (votes[numvotes-1-i]= _safecoin_paxprice(0,0,height-i,base,rel,100000,SAFEbtc,btcusd)) == 0 )
+          if ( (votes[numvotes-1-i]= _safecoin_paxprice(0,0,height-i,base,rel,100000,safebtc,btcusd)) == 0 )
 --- 476,481 ----
 ***************
 *** 481,487 ****
@@ -3966,7 +3966,7 @@ diff -crB ./src/safecoin_pax.h ../../safecoin-jl777/src/safecoin_pax.h
       }
       if ( nonz <= (numvotes >> 1) )
 +     {
-+         //printf("SAFEbtc %llu btcusd %llu\n",(long long)SAFEbtc,(long long)btcusd);
++         //printf("safebtc %llu btcusd %llu\n",(long long)safebtc,(long long)btcusd);
 +         //printf("safecoin_paxprice nonz.%d of numvotes.%d\n",nonz,numvotes);
           return(0);
 +     }
@@ -4747,7 +4747,7 @@ diff -crB ./src/miner.cpp ../../safecoin-jl777/src/miner.cpp
 + int32_t safecoin_baseid(char *origbase);
   int32_t safecoin_is_issuer();
   int32_t safecoin_gateway_deposits(CMutableTransaction *txNew,char *symbol,int32_t tosafecoin);
-  int32_t safecoin_isrealtime(int32_t *SAFEheightp);
+  int32_t safecoin_isrealtime(int32_t *safeheightp);
 ***************
 *** 121,137 ****
       if(!pblocktemplate.get())
@@ -4755,13 +4755,13 @@ diff -crB ./src/miner.cpp ../../safecoin-jl777/src/miner.cpp
       CBlock *pblock = &pblocktemplate->block; // pointer for convenience
 !     if ( ASSETCHAINS_SYMBOL[0] != 0 && chainActive.Tip()->nHeight > ASSETCHAINS_MINHEIGHT )
       {
-          isrealtime = safecoin_isrealtime(&SAFEheight);
+          isrealtime = safecoin_isrealtime(&safeheight);
 !         while ( SAFECOIN_ON_DEMAND == 0 )
           {
               deposits = safecoin_paxtotal();
-!             if ( SAFECOIN_INITDONE == 0 || (isrealtime= safecoin_isrealtime(&SAFEheight)) == 0 )
+!             if ( SAFECOIN_INITDONE == 0 || (isrealtime= safecoin_isrealtime(&safeheight)) == 0 )
               {
-                  //fprintf(stderr,"INITDONE.%d RT.%d deposits %.8f ht.%d\n",SAFECOIN_INITDONE,isrealtime,(double)deposits/COIN,SAFEheight);
+                  //fprintf(stderr,"INITDONE.%d RT.%d deposits %.8f ht.%d\n",SAFECOIN_INITDONE,isrealtime,(double)deposits/COIN,safeheight);
               }
 !             else if ( deposits != 0 )
               {
@@ -4773,14 +4773,14 @@ diff -crB ./src/miner.cpp ../../safecoin-jl777/src/miner.cpp
       CBlock *pblock = &pblocktemplate->block; // pointer for convenience
 !     if ( ASSETCHAINS_SYMBOL[0] != 0 && chainActive.Tip()->nHeight >= ASSETCHAINS_MINHEIGHT )
       {
-          isrealtime = safecoin_isrealtime(&SAFEheight);
+          isrealtime = safecoin_isrealtime(&safeheight);
 !         deposits = safecoin_paxtotal();
 !         while ( SAFECOIN_ON_DEMAND == 0 && deposits == 0 && (int32_t)mempool.GetTotalTxSize() == 0 )
           {
               deposits = safecoin_paxtotal();
-!             if ( SAFECOIN_INITDONE == 0 || (safecoin_baseid(ASSETCHAINS_SYMBOL) >= 0 && (isrealtime= safecoin_isrealtime(&SAFEheight)) == 0) )
+!             if ( SAFECOIN_INITDONE == 0 || (safecoin_baseid(ASSETCHAINS_SYMBOL) >= 0 && (isrealtime= safecoin_isrealtime(&safeheight)) == 0) )
               {
-                  //fprintf(stderr,"INITDONE.%d RT.%d deposits %.8f ht.%d\n",SAFECOIN_INITDONE,isrealtime,(double)deposits/COIN,SAFEheight);
+                  //fprintf(stderr,"INITDONE.%d RT.%d deposits %.8f ht.%d\n",SAFECOIN_INITDONE,isrealtime,(double)deposits/COIN,safeheight);
               }
 !             else if ( deposits != 0 || (int32_t)mempool.GetTotalTxSize() > 0 )
               {
@@ -6432,7 +6432,7 @@ diff -crB ./src/test/rpc_wallet_tests.cpp ../../safecoin-jl777/src/test/rpc_wall
 +     BOOST_CHECK(addrs.size()==0);
 + 
 +     // This address is not valid, it belongs to another network
-+     BOOST_CHECK_NO_THROW(retValue = CallRPC("z_validateaddress ztaaga95QAPyp1kSQ1hD2kguCpzyMHjxWZqaYDEkzbvo7uYQYAw2S8X4Kx98AvhhofMtQL8PAXKHuZsmhRcanavKRSAFECzk"));
++     BOOST_CHECK_NO_THROW(retValue = CallRPC("z_validateaddress ztaaga95QAPyp1kSQ1hD2kguCpzyMHjxWZqaYDEkzbvo7uYQYAw2S8X4Kx98AvhhofMtQL8PAXKHuZsmhRcanavKRSafeCzk"));
 +     Object resultObj = retValue.get_obj();
 +     bool b = find_value(resultObj, "isvalid").get_bool();
 +     BOOST_CHECK_EQUAL(b, false);

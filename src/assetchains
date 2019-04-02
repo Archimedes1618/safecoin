@@ -1,81 +1,19 @@
 #!/bin/bash
+set -eo pipefail
+
+# You can now add delay line to pubkey.txt file
 source pubkey.txt
-args=("$@")
-seed_ip='78.47.196.146'
-safecoin_binary='./safecoind'
-delay=20
+overide_args="$@"
+seed_ip=`getent hosts zero.kolo.ipv6admin.com | awk '{ print $1 }'`
 
-function safecoin_asset ()
-{
-    if [ $[RANDOM % 10] == 1 ]
-    then
-        gen=" -gen"
-    else
-        gen=""
-    fi
+if [ -z "$delay" ]; then delay=20; fi
 
-    if [ -n "$2" ]
-    then
-        supply=" -ac_supply=$2"
-    else
-        supply=" "
-    fi
+./listassetchainparams | while read args; do
+  gen=""
+  if [ $[RANDOM % 10] == 1 ]; then
+      gen=" -gen -genproclimit=1"
+  fi
 
-    $safecoin_binary -pubkey=$pubkey -ac_name=$1 $supply -addnode=$seed_ip $gen $args &
-    sleep $delay
-}
-
-#set -x
-
-safecoin_asset REVS 1300000
-safecoin_asset SUPERNET 816061
-safecoin_asset DEX 999999
-safecoin_asset PANGEA 999999
-safecoin_asset JUMBLR 999999
-safecoin_asset BET 999999
-safecoin_asset CRYPTO 999999
-safecoin_asset HODL 9999999
-safecoin_asset SHARK 1401
-safecoin_asset MSHARK 1400000
-safecoin_asset BOTS 999999
-safecoin_asset MGW 999999
-#safecoin_asset MVP 1000000
-safecoin_asset COQUI 72000000
-safecoin_asset WLC 210000000
-safecoin_asset KV 1000000
-safecoin_asset CEAL 366666666
-safecoin_asset MESH 1000007
-safecoin_asset MNZ 257142858
-
-safecoin_asset USD
-safecoin_asset EUR
-safecoin_asset JPY
-safecoin_asset GBP
-safecoin_asset AUD
-safecoin_asset CAD
-safecoin_asset CHF
-safecoin_asset NZD
-safecoin_asset CNY
-safecoin_asset RUB
-safecoin_asset MXN
-safecoin_asset BRL
-safecoin_asset INR
-safecoin_asset HKD
-safecoin_asset TRY
-safecoin_asset ZAR
-safecoin_asset PLN
-safecoin_asset NOK
-safecoin_asset SEK
-safecoin_asset DKK
-safecoin_asset CZK
-safecoin_asset HUF
-safecoin_asset ILS
-safecoin_asset KRW
-safecoin_asset MYR
-safecoin_asset PHP
-safecoin_asset RON
-safecoin_asset SGD
-safecoin_asset THB
-safecoin_asset BGN
-safecoin_asset IDR
-safecoin_asset HRK
+  ./safecoind $gen $args $overide_args -pubkey=$pubkey -addnode=$seed_ip &
+  sleep $delay
+done

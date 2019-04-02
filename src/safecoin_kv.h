@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright © 2014-2017 The SuperNET Developers.                             *
+ * Copyright © 2014-2018 The SuperNET Developers.                             *
  *                                                                            *
  * See the AUTHORS, DEVELOPER-AGREEMENT and LICENSE files at                  *
  * the top-level directory of this distribution for the individual copyright  *
@@ -64,7 +64,7 @@ int32_t safecoin_kvsearch(uint256 *pubkeyp,int32_t current_height,uint32_t *flag
     if ( ptr != 0 )
     {
         duration = safecoin_kvduration(ptr->flags);
-        //printf("duration.%d flags.%d current.%d ht.%d keylen.%d valuesize.%d\n",duration,ptr->flags,current_height,ptr->height,ptr->keylen,ptr->valuesize);
+        //fprintf(stderr,"duration.%d flags.%d current.%d ht.%d keylen.%d valuesize.%d\n",duration,ptr->flags,current_height,ptr->height,ptr->keylen,ptr->valuesize);
         if ( current_height > (ptr->height + duration) )
         {
             HASH_DELETE(hh,SAFECOIN_KV,ptr);
@@ -88,7 +88,7 @@ int32_t safecoin_kvsearch(uint256 *pubkeyp,int32_t current_height,uint32_t *flag
             if ( (retval= ptr->valuesize) > 0 )
                 memcpy(value,ptr->value,retval);
         }
-    }
+    } //else fprintf(stderr,"couldnt find (%s)\n",(char *)key);
     portable_mutex_unlock(&SAFECOIN_KV_mutex);
     if ( retval < 0 )
     {
@@ -100,7 +100,9 @@ int32_t safecoin_kvsearch(uint256 *pubkeyp,int32_t current_height,uint32_t *flag
 void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
 {
     static uint256 zeroes;
-    uint32_t flags; uint256 pubkey,refpubkey,sig; int32_t i,refvaluesize,hassig,coresize,haspubkey,height,kvheight; uint16_t keylen,valuesize,newflag = 0; uint8_t *key,*valueptr,keyvalue[IGUANA_MAXSCRIPTSIZE]; struct safecoin_kv *ptr; char *transferpubstr,*tstr; uint64_t fee;
+    uint32_t flags; uint256 pubkey,refpubkey,sig; int32_t i,refvaluesize,hassig,coresize,haspubkey,height,kvheight; uint16_t keylen,valuesize,newflag = 0; uint8_t *key,*valueptr,keyvalue[IGUANA_MAXSCRIPTSIZE*8]; struct safecoin_kv *ptr; char *transferpubstr,*tstr; uint64_t fee;
+    if ( ASSETCHAINS_SYMBOL[0] == 0 ) // disable KV for SAFE
+        return;
     iguana_rwnum(0,&opretbuf[1],sizeof(keylen),&keylen);
     iguana_rwnum(0,&opretbuf[3],sizeof(valuesize),&valuesize);
     iguana_rwnum(0,&opretbuf[5],sizeof(height),&height);
@@ -110,12 +112,12 @@ void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
     {
         static uint32_t counter;
         if ( ++counter < 1 )
-            printf("safecoin_kvupdate: keylen.%d + 13 > opretlen.%d, this can be ignored\n",keylen,opretlen);
+            fprintf(stderr,"safecoin_kvupdate: keylen.%d + 13 > opretlen.%d, this can be ignored\n",keylen,opretlen);
         return;
     }
     valueptr = &key[keylen];
     fee = safecoin_kvfee(flags,opretlen,keylen);
-    //printf("fee %.8f vs %.8f flags.%d keylen.%d valuesize.%d height.%d (%02x %02x %02x) (%02x %02x %02x)\n",(double)fee/COIN,(double)value/COIN,flags,keylen,valuesize,height,key[0],key[1],key[2],valueptr[0],valueptr[1],valueptr[2]);
+    //fprintf(stderr,"fee %.8f vs %.8f flags.%d keylen.%d valuesize.%d height.%d (%02x %02x %02x) (%02x %02x %02x)\n",(double)fee/COIN,(double)value/COIN,flags,keylen,valuesize,height,key[0],key[1],key[2],valueptr[0],valueptr[1],valueptr[2]);
     if ( value >= fee )
     {
         coresize = (int32_t)(sizeof(flags)+sizeof(height)+sizeof(keylen)+sizeof(valuesize)+keylen+valuesize+1);
@@ -140,7 +142,7 @@ void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
                 {
                     if ( safecoin_kvsigverify(keyvalue,keylen+refvaluesize,refpubkey,sig) < 0 )
                     {
-                        printf("safecoin_kvsigverify error [%d]\n",coresize-13);
+                        //fprintf(stderr,"safecoin_kvsigverify error [%d]\n",coresize-13);
                         return;
                     }
                 }
@@ -149,6 +151,7 @@ void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
             HASH_FIND(hh,SAFECOIN_KV,key,keylen,ptr);
             if ( ptr != 0 )
             {
+                //fprintf(stderr,"(%s) already there\n",(char *)key);
                 //if ( (ptr->flags & SAFECOIN_KVPROTECTED) != 0 )
                 {
                     tstr = (char *)"transfer:";
@@ -169,7 +172,7 @@ void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
                 memcpy(ptr->key,key,keylen);
                 newflag = 1;
                 HASH_ADD_KEYPTR(hh,SAFECOIN_KV,ptr->key,ptr->keylen,ptr);
-                //printf("KV add.(%s) (%s)\n",ptr->key,valueptr);
+                //fprintf(stderr,"KV add.(%s) (%s)\n",ptr->key,valueptr);
             }
             if ( newflag != 0 || (ptr->flags & SAFECOIN_KVPROTECTED) == 0 )
             {
@@ -180,7 +183,7 @@ void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
                     ptr->value = (uint8_t *)calloc(1,valuesize);
                     memcpy(ptr->value,valueptr,valuesize);
                 }
-            }
+            } else fprintf(stderr,"newflag.%d zero or protected %d\n",newflag,(ptr->flags & SAFECOIN_KVPROTECTED));
             /*for (i=0; i<32; i++)
                 printf("%02x",((uint8_t *)&ptr->pubkey)[i]);
             printf(" <- ");
@@ -189,10 +192,10 @@ void safecoin_kvupdate(uint8_t *opretbuf,int32_t opretlen,uint64_t value)
             printf(" new pubkey\n");*/
             memcpy(&ptr->pubkey,&pubkey,sizeof(ptr->pubkey));
             ptr->height = height;
-            ptr->flags = flags | 1;
+            ptr->flags = flags; // jl777 used to or in KVPROTECTED
             portable_mutex_unlock(&SAFECOIN_KV_mutex);
-        } //else printf("size mismatch %d vs %d\n",opretlen,coresize);
-    } 
+        } else fprintf(stderr,"KV update size mismatch %d vs %d\n",opretlen,coresize);
+    } else fprintf(stderr,"not enough fee\n");
 }
 
 #endif

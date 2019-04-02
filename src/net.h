@@ -30,6 +30,10 @@
 #include <boost/foreach.hpp>
 #include <boost/signals2/signal.hpp>
 
+// Enable OpenSSL Support for Safecoin
+#include <openssl/bio.h>
+#include <openssl/ssl.h>
+
 class CAddrMan;
 class CBlockIndex;
 class CScheduler;
@@ -48,21 +52,19 @@ static const unsigned int MAX_INV_SZ = 50000;
 /** The maximum number of new addresses to accumulate before announcing. */
 static const unsigned int MAX_ADDR_TO_SEND = 1000;
 /** Maximum length of incoming protocol messages (no message over 2 MiB is currently acceptable). */
-static const unsigned int MAX_PROTOCOL_MESSAGE_LENGTH = 2 * 1024 * 1024;
+static const unsigned int MAX_PROTOCOL_MESSAGE_LENGTH = 4 * 1024 * 1024;
+/** Maximum length of strSubVer in `version` message */
+static const unsigned int MAX_SUBVERSION_LENGTH = 256;
 /** -listen default */
 static const bool DEFAULT_LISTEN = true;
-/** -upnp default */
-#ifdef USE_UPNP
-static const bool DEFAULT_UPNP = USE_UPNP;
-#else
-static const bool DEFAULT_UPNP = false;
-#endif
 /** The maximum number of entries in mapAskFor */
 static const size_t MAPASKFOR_MAX_SZ = MAX_INV_SZ;
 /** The maximum number of entries in setAskFor (larger due to getdata latency)*/
 static const size_t SETASKFOR_MAX_SZ = 2 * MAX_INV_SZ;
 /** The maximum number of peer connections to maintain. */
-static const unsigned int DEFAULT_MAX_PEER_CONNECTIONS = 125;
+static const unsigned int DEFAULT_MAX_PEER_CONNECTIONS = 384;
+/** The period before a network upgrade activates, where connections to upgrading peers are preferred (in blocks). */
+static const int NETWORK_UPGRADE_PEER_PREFERENCE_BLOCK_PERIOD = 24 * 24 * 3;
 
 unsigned int ReceiveFloodSize();
 unsigned int SendBufferSize();
@@ -75,12 +77,25 @@ CNode* FindNode(const std::string& addrName);
 CNode* FindNode(const CService& ip);
 CNode* ConnectNode(CAddress addrConnect, const char *pszDest = NULL);
 bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOutbound = NULL, const char *strDest = NULL, bool fOneShot = false);
-void MapPort(bool fUseUPnP);
 unsigned short GetListenPort();
 bool BindListenPort(const CService &bindAddr, std::string& strError, bool fWhitelisted = false);
 void StartNode(boost::thread_group& threadGroup, CScheduler& scheduler);
 bool StopNode();
 void SocketSendData(CNode *pnode);
+SSL_CTX* create_context(bool server_side);
+EVP_PKEY *generate_key();
+X509 *generate_x509(EVP_PKEY *pkey);
+bool write_to_disk(EVP_PKEY *pkey, X509 *x509);
+void configure_context(SSL_CTX *ctx, bool server_side);
+static boost::filesystem::path tlsKeyPath;
+static boost::filesystem::path tlsCertPath;
+
+// OpenSSL related variables for metrics.cpp
+static std::string routingsecrecy;
+static std::string cipherdescription;
+static std::string securitylevel;
+static std::string validationdescription;
+
 
 typedef int NodeId;
 
@@ -118,7 +133,7 @@ enum
     LOCAL_NONE,   // unknown
     LOCAL_IF,     // address a local interface listens on
     LOCAL_BIND,   // address explicit bound to
-    LOCAL_UPNP,   // address reported by UPnP
+    LOCAL_UPNP,   // unused (was: address reported by UPnP)
     LOCAL_MANUAL, // address explicitly specified (-externalip=)
 
     LOCAL_MAX
@@ -161,11 +176,15 @@ extern CCriticalSection cs_vAddedNodes;
 extern NodeId nLastNodeId;
 extern CCriticalSection cs_nLastNodeId;
 
+/** Subversion as sent to the P2P network in `version` messages */
+extern std::string strSubVersion;
+extern SSL_CTX *tls_ctx_server;
+extern SSL_CTX *tls_ctx_client;
+
 struct LocalServiceInfo {
     int nScore;
     int nPort;
 };
-
 extern CCriticalSection cs_mapLocalHost;
 extern std::map<CNetAddr, LocalServiceInfo> mapLocalHost;
 
@@ -174,6 +193,9 @@ class CNodeStats
 public:
     NodeId nodeid;
     uint64_t nServices;
+    bool fTLSEstablished;
+    bool fTLSVerified;
+
     int64_t nLastSend;
     int64_t nLastRecv;
     int64_t nTimeConnected;
@@ -240,9 +262,13 @@ public:
 class CNode
 {
 public:
+    // OpenSSL
+    SSL *ssl;
+
     // socket
     uint64_t nServices;
     SOCKET hSocket;
+    CCriticalSection cs_hSocket;
     CDataStream ssSend;
     size_t nSendSize; // total size of all vSendMsg entries
     size_t nSendOffset; // offset inside the first vSendMsg already sent
@@ -332,7 +358,7 @@ public:
     // Whether a ping is requested.
     bool fPingQueued;
 
-    CNode(SOCKET hSocketIn, const CAddress &addrIn, const std::string &addrNameIn = "", bool fInboundIn = false);
+    CNode(SOCKET hSocketIn, const CAddress &addrIn, const std::string &addrNameIn = "", bool fInboundIn = false, SSL *sslIn = NULL);
     ~CNode();
 
 private:

@@ -1,9 +1,9 @@
 .PHONY: FORCE
 all: FORCE
-	$(MAKE) -C .. komodo_qt test_komodo_qt
+	$(MAKE) -C .. safecoin_qt test_safecoin_qt
 clean: FORCE
-	$(MAKE) -C .. komodo_qt_clean test_komodo_qt_clean
+	$(MAKE) -C .. safecoin_qt_clean test_safecoin_qt_clean
 check: FORCE
-	$(MAKE) -C .. test_komodo_qt_check
-komodo-qt komodo-qt.exe: FORCE
-	 $(MAKE) -C .. komodo_qt
+	$(MAKE) -C .. test_safecoin_qt_check
+safecoin-qt safecoin-qt.exe: FORCE
+	 $(MAKE) -C .. safecoin_qt

@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "clientversion.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 #include "init.h"
 #include "main.h"
 #include "noui.h"
@@ -12,7 +12,6 @@
 #include "util.h"
 #include "httpserver.h"
 #include "httprpc.h"
-#include "rpcserver.h"
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/filesystem.hpp>
@@ -42,9 +41,12 @@
  */
 
 static bool fDaemon;
+#include "safecoin_defs.h"
 #define SAFECOIN_ASSETCHAIN_MAXLEN 65
 extern char ASSETCHAINS_SYMBOL[SAFECOIN_ASSETCHAIN_MAXLEN];
 void safecoin_passport_iteration();
+uint64_t safecoin_interestsum();
+int32_t safecoin_longestchain();
 
 void WaitForShutdown(boost::thread_group* threadGroup)
 {
@@ -56,8 +58,14 @@ void WaitForShutdown(boost::thread_group* threadGroup)
         if ( ASSETCHAINS_SYMBOL[0] == 0 )
         {
             safecoin_passport_iteration();
-            MilliSleep(1000);
-        } else MilliSleep(1000);
+            MilliSleep(10000);
+        }
+        else
+        {
+            //safecoin_interestsum();
+            //safecoin_longestchain();
+            MilliSleep(20000);
+        }
         fShutdown = ShutdownRequested();
     }
     if (threadGroup)
@@ -107,7 +115,7 @@ bool AppInit(int argc, char* argv[])
         }
 
         fprintf(stdout, "%s", strUsage.c_str());
-        return false;
+        return true;
     }
 
     try
@@ -125,7 +133,7 @@ bool AppInit(int argc, char* argv[])
             sleep(1);
             #endif
         }
-        printf("initialized %s\n",ASSETCHAINS_SYMBOL);
+        printf("initialized %s at %u\n",ASSETCHAINS_SYMBOL,(uint32_t)time(NULL));
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
             fprintf(stderr, "Error: Specified data directory \"%s\" does not exist.\n", mapArgs["-datadir"].c_str());
@@ -136,21 +144,21 @@ bool AppInit(int argc, char* argv[])
             ReadConfigFile(mapArgs, mapMultiArgs);
         } catch (const missing_zcash_conf& e) {
             fprintf(stderr,
-                (_("Before starting zcashd, you need to create a configuration file:\n"
+                (_("Before starting safecoind, you need to create a configuration file:\n"
                    "%s\n"
                    "It can be completely empty! That indicates you are happy with the default\n"
-                   "configuration of zcashd. But requiring a configuration file to start ensures\n"
-                   "that zcashd won't accidentally compromise your privacy if there was a default\n"
+                   "configuration of safecoind. But requiring a configuration file to start ensures\n"
+                   "that safecoind won't accidentally compromise your privacy if there was a default\n"
                    "option you needed to change.\n"
                    "\n"
                    "You can look at the example configuration file for suggestions of default\n"
                    "options that you may want to change. It should be in one of these locations,\n"
-                   "depending on how you installed Zcash:\n") +
+                   "depending on how you installed Safecoin:\n") +
                  _("- Source code:  %s\n"
                    "- .deb package: %s\n")).c_str(),
                 GetConfigFile().string().c_str(),
-                "contrib/debian/examples/zcash.conf",
-                "/usr/share/doc/zcash/examples/zcash.conf");
+                "contrib/debian/examples/safecoin.conf",
+                "/usr/share/doc/safecoin/examples/safecoin.conf");
             return false;
         } catch (const std::exception& e) {
             fprintf(stderr,"Error reading configuration file: %s\n", e.what());
@@ -171,7 +179,7 @@ bool AppInit(int argc, char* argv[])
         if (fCommandLine)
         {
             fprintf(stderr, "Error: There is no RPC client functionality in safecoind. Use the safecoin-cli utility instead.\n");
-            exit(1);
+            exit(EXIT_FAILURE);
         }
 
 #ifndef _WIN32
@@ -228,5 +236,5 @@ int main(int argc, char* argv[])
     // Connect bitcoind signal handlers
     noui_connect();
 
-    return (AppInit(argc, argv) ? 0 : 1);
+    return (AppInit(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
